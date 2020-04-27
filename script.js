@@ -1,8 +1,8 @@
-const startButton = document.getElementById("start-btn")
-const nextButton = document.getElementById("next-btn")
-const questionContainerElement = document.getElementById("question-conntainer")
-const questionElement = document.getElementById("question")
-const answerButtonsElement = document.getElementById("answer-buttons")
+const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
+const questionContainerElement = document.getElementById("question-conntainer");
+const questionElement = document.getElementById("question");
+const answerButtonsElement = document.getElementById("answer-buttons");
 
 let shuffledQuestion, currentQuestionIndex
 
@@ -23,14 +23,15 @@ function startQuiz() {
 
 function setNextQuestion() {
     resetState()
-    ShowQuestion(shuffLedQuestions[currentQuestionIndex])
+    ShowQuestion(shuffledQuestions[currentQuestionIndex])
 }
 
 function showQuestion(question) {
     questionElement.innerText = question.question
     question.answers.forEach(answer =>{
-        const button = document.createElement("button")
-        button.classList.add("btn")
+        const button = document.createElement("button");
+        button.innerTex = answer.text;
+        button.classList.add("btn");
         If (answer.correct) {
             button.datasset.correct = answer.correct
         }
@@ -47,8 +48,8 @@ function resetState(){
 }
 
 function selectAnswer(e) {
-    const selectedButton = e.target
-    const correct = selectedButton.dataset.correct
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct;
     setStatusClass(document.body, correct)
     Array.from(answerButtonsElement.children).forEach(buton =>{
         setStatusClass(buton, button.dataset.correct)
@@ -77,7 +78,7 @@ function clearStatusClass(element) {
     element.classList.remove("wrong")
 }
 
-const Question =[]
+const Question =[];
 const score = 0;
 
 const question = [
